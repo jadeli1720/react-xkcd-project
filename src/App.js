@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './App.scss';
 import axios from 'axios';
 
+import ComicButtons from './components/ComicButtons'
+
 function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -56,7 +58,7 @@ function App() {
   console.log(comic)
   if(loading) {
     //loading spinner can go here!
-    return <div>loading...</div>;
+    return <div className="loading">loading...</div>;
   };
 
   if(!comic || error) {
@@ -66,33 +68,21 @@ function App() {
   //Remember, for the bottom return statement to run (because a react component is just a function that needs to return JSX), comic cannot be null (it must be have a value). If it is, the component stops at the above conditional and we return loading until a comic becomes !null.
   return (
     <div className="app">
-      {comic.title}
-      <button 
-        disabled = {comic.num === 1}
-        onClick={() => fetchComic(1)}>
-        first
-      </button>
-      <button 
-        disabled = {comic.num <= 1}
-        onClick={() => fetchComic(comic.num - 1)}>
-        previous
-      </button>
-      {/* fetchRandomComic */}
-      <button 
-        onClick={() => fetchRandomComic()}>
-        Random
-      </button>
-      <button 
-        disabled = {comic.num === latestComicNum}
-        onClick={() => fetchComic(comic.num + 1)}>
-        next
-      </button>
-      <button 
-        disabled = {comic.num === latestComicNum}
-        onClick={() => fetchLatestComic()}>
-        latest
-      </button>
-      <img src={comic.img} alt={comic.alt} />
+      <h1>{comic.title}</h1>
+      {/* passing of these props can be improved */}
+      <ComicButtons 
+        comic={comic} 
+        fetchComic={fetchComic} 
+        fetchLatestComic={fetchLatestComic} 
+        fetchRandomComic={fetchRandomComic} 
+        latestComicNum={latestComicNum} />
+      <img src={comic.img} title={comic.alt} alt={comic.title} />
+      <ComicButtons 
+        comic={comic} 
+        fetchComic={fetchComic} 
+        fetchLatestComic={fetchLatestComic} 
+        fetchRandomComic={fetchRandomComic} 
+        latestComicNum={latestComicNum} />
     </div>
   );
 };
