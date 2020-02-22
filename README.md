@@ -8,14 +8,14 @@ To accomplish this, we will need to make some network requests with [axios](http
 
 ## Goals
 
-* [ ] Be respectful of the limits of the cors-anywhere and xkcd api.
-* [ ] Recreate the core functionality of [xckd.com](xkcd.com).
-  * [ ] See the most recent comic on page load.
-  * [ ] Go to next comic.
-  * [ ] Go to previous comic.
-  * [ ] Go to first comic.
-  * [ ] Go to most recent comic.
-  * [ ] Go to random comic.
+* [x] Be respectful of the limits of the cors-anywhere and xkcd api.
+* [x] Recreate the core functionality of [xckd.com](xkcd.com).
+  * [x] See the most recent comic on page load.
+  * [x] Go to next comic.
+  * [x] Go to previous comic.
+  * [x] Go to first comic.
+  * [x] Go to most recent comic.
+  * [x] Go to random comic.
 * [ ] Display the comic image, title, and alt text.
 
 ## Stretch Goals
