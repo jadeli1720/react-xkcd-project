@@ -36,8 +36,22 @@ h1 {
       padding: 0.25rem 1rem;
       transition: all .3s ;
 
+      // To keep the hover from over-riding the disabled properties, make sure it always comes first. Order matters here.
       &:hover{
         background: darken(#6C7CB3, 10%);
+      } 
+
+      &:disabled {
+        background: lighten(#6C7CB3, 10%);
+        cursor: not-allowed;
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      &::-moz-focus-inner {
+        border: 0;
       }
 
       &:not(:last-child){
@@ -48,7 +62,7 @@ h1 {
 
 
 .loading {
-  min-height: 100vh;
+  min-height: 350px;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -62,6 +76,11 @@ h1 {
     border-radius: 50%;
     animation: spin 1.3s linear infinite;
   }
+}
+
+.comic {
+  min-height: 350px;
+  height: 100%;
 }
 
 @keyframes spin {

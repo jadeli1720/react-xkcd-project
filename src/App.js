@@ -3,6 +3,7 @@ import './App.scss';
 import axios from 'axios';
 
 import ComicButtons from './components/ComicButtons'
+import { isCompositeComponent } from 'react-dom/test-utils';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -56,37 +57,50 @@ function App() {
 
 
   console.log(comic)
-  if(loading) {
-    // css loading spinner!
-    return (
-      <div className="loading">
-        <div className="spinner"></div>
-      </div>
-      );
-  };
+  // if(loading) {
+  //   // css loading spinner!
+  //   return (
+  //     <div className="loading">
+  //       <div className="spinner"></div>
+  //     </div>
+  //     );
+  // };
 
-  if(!comic || error) {
+  if(error) {
     return <div>Oops. I'm sorry but something went wrong!</div>
   }
 
   //Remember, for the bottom return statement to run (because a react component is just a function that needs to return JSX), comic cannot be null (it must be have a value). If it is, the component stops at the above conditional and we return loading until a comic becomes !null.
   return (
     <div className="app">
-      <h1>{comic.title}</h1>
+      <h1>{loading ? 'Loading...': comic.title}</h1>
       {/* passing of these props can be improved */}
       <ComicButtons 
         comic={comic} 
         fetchComic={fetchComic} 
         fetchLatestComic={fetchLatestComic} 
         fetchRandomComic={fetchRandomComic} 
-        latestComicNum={latestComicNum} />
-      <img src={comic.img} title={comic.alt} alt={comic.title} />
+        latestComicNum={latestComicNum}
+        loading={loading}
+        />
+      { loading
+        ?
+        <div className="loading">
+          <div className="spinner"></div>
+        </div>
+        :
+        <div className="comic" >
+          <img  src={comic.img} title={comic.alt} alt={comic.title} />
+        </div>
+      }
       <ComicButtons 
         comic={comic} 
         fetchComic={fetchComic} 
         fetchLatestComic={fetchLatestComic} 
         fetchRandomComic={fetchRandomComic} 
-        latestComicNum={latestComicNum} />
+        latestComicNum={latestComicNum}
+        loading={loading}
+        />
     </div>
   );
 };
