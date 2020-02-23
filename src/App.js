@@ -57,8 +57,12 @@ function App() {
 
   console.log(comic)
   if(loading) {
-    //loading spinner can go here!
-    return <div className="loading">loading...</div>;
+    // css loading spinner!
+    return (
+      <div className="loading">
+        <div className="spinner"></div>
+      </div>
+      );
   };
 
   if(!comic || error) {

@@ -47,6 +47,32 @@ h1 {
 }
 
 
+.loading {
+  min-height: 100vh;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .spinner{
+    width: 100px;
+    height: 100px;
+    border: 3px solid white;
+    border-color: white grey grey ;
+    border-radius: 50%;
+    animation: spin 1.3s linear infinite;
+  }
+}
+
+@keyframes spin {
+  to{
+    transform: rotate(0deg)
+  }
+  from{
+    transform: rotate(360deg)
+  }
+}
+
 // .app {
 //   box-sizing: border-box;
 //   display: flex;
@@ -100,17 +126,6 @@ h1 {
 //   display: flex;
 //   align-items: center;
 //   justify-content: center;
-// }
-
-// .loading {
-//   width: 6rem;
-//   height: 6rem;
-//   margin: 0.5rem;
-//   border-radius: 50%;
-//   border: 6px solid #fafafa;
-//   border-color: #fafafa transparent transparent;
-//   animation: spin 1.3s linear infinite;
-//   display: block;
 // }
 
 // @keyframes spin {
