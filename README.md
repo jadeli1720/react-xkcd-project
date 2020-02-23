@@ -16,14 +16,14 @@ To accomplish this, we will need to make some network requests with [axios](http
   * [x] Go to first comic.
   * [x] Go to most recent comic.
   * [x] Go to random comic.
-* [ ] Display the comic image, title, and alt text.
+* [x] Display the comic image, title, and alt text.
 
 ## Stretch Goals
 
 * [ ] Use [react-router](https://reacttraining.com/react-router/web/guides/quick-start), or another routing solution, handle navigating to comics by id.
-* [ ] Setup [cors anywhere](https://github.com/Rob--W/cors-anywhere) locally.
-* [ ] Disable comic navigation buttons depending on context. (ex. It doesn't make sense to go to the next comic when you are at the lastest one).
-* [ ] Try initiating your requests directly with functions (ex. `fetchLastestComic()`) or via `useEffect` (ex. `useEffect(() => { axios(...) }, [comicNumber])`).
+* [x] Setup [cors anywhere](https://github.com/Rob--W/cors-anywhere) locally.
+* [x] Disable comic navigation buttons depending on context. (ex. It doesn't make sense to go to the next comic when you are at the lastest one).
+* [x] Try initiating your requests directly with functions (ex. `fetchLastestComic()`) or via `useEffect` (ex. `useEffect(() => { axios(...) }, [comicNumber])`).
 
 ## Notes
 
