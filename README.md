@@ -8,22 +8,22 @@ To accomplish this, we will need to make some network requests with [axios](http
 
 ## Goals
 
-* [ ] Be respectful of the limits of the cors-anywhere and xkcd api.
-* [ ] Recreate the core functionality of [xckd.com](xkcd.com).
-  * [ ] See the most recent comic on page load.
-  * [ ] Go to next comic.
-  * [ ] Go to previous comic.
-  * [ ] Go to first comic.
-  * [ ] Go to most recent comic.
-  * [ ] Go to random comic.
-* [ ] Display the comic image, title, and alt text.
+* [x] Be respectful of the limits of the cors-anywhere and xkcd api.
+* [x] Recreate the core functionality of [xckd.com](xkcd.com).
+  * [x] See the most recent comic on page load.
+  * [x] Go to next comic.
+  * [x] Go to previous comic.
+  * [x] Go to first comic.
+  * [x] Go to most recent comic.
+  * [x] Go to random comic.
+* [x] Display the comic image, title, and alt text.
 
 ## Stretch Goals
 
 * [ ] Use [react-router](https://reacttraining.com/react-router/web/guides/quick-start), or another routing solution, handle navigating to comics by id.
-* [ ] Setup [cors anywhere](https://github.com/Rob--W/cors-anywhere) locally.
-* [ ] Disable comic navigation buttons depending on context. (ex. It doesn't make sense to go to the next comic when you are at the lastest one).
-* [ ] Try initiating your requests directly with functions (ex. `fetchLastestComic()`) or via `useEffect` (ex. `useEffect(() => { axios(...) }, [comicNumber])`).
+* [x] Setup [cors anywhere](https://github.com/Rob--W/cors-anywhere) locally.
+* [x] Disable comic navigation buttons depending on context. (ex. It doesn't make sense to go to the next comic when you are at the lastest one).
+* [x] Try initiating your requests directly with functions (ex. `fetchLastestComic()`) or via `useEffect` (ex. `useEffect(() => { axios(...) }, [comicNumber])`).
 
 ## Notes
 

@@ -2,6 +2,7 @@ body {
   margin: 0;
   background: #282937;
   font-family: 'Helvetica', 'Helvetica Nueue', sans-serif;
+  color:#fafafa
 }
 
 .app {
@@ -14,67 +15,143 @@ body {
   color: #fafafa;
 }
 
-button {
-  background: #6C7CB3;
-  border: 1px solid black;
-  box-shadow: 0 0 5px 0 black;
-  border-radius: 0.25rem;
-  color: #fafafa;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background 0.15s;
-  padding: 0.25rem 1rem;
-
-  &:hover {
-    background: darken(#6C7CB3, 10%);
-  }
-
-  &:disabled {
-    background: #81879d;
-    cursor: not-allowed;
-  }
-
-  &:focus {
-    outline: none;
-  }
-
-  &::-moz-focus-inner {
-    border: 0;
-  }
+h1 {
+  text-align: center;
 }
 
-.buttons-row {
-  display: grid;
-  grid-template-rows: 1fr;
-  grid-auto-flow: column;
-  grid-gap: 1rem;
-  justify-items: center;
-  margin: 1.5rem 0;
-}
-
-.comic-container {
-  min-height: 20rem;
+.button-container {
   display: flex;
-  align-items: center;
   justify-content: center;
+  margin: 1.5rem 0;
+  
+  button {
+      background: #6C7CB3;
+      border: 1px solid black;
+      box-shadow: 0 0 5px 0 black;
+      border-radius: 0.25rem;
+      color: #fafafa;
+      cursor: pointer;
+      font-size: 1.2rem;
+      font-weight: bold;
+      padding: 0.25rem 1rem;
+      transition: all .3s ;
+
+      // To keep the hover from over-riding the disabled properties, make sure it always comes first. Order matters here.
+      &:hover{
+        background: darken(#6C7CB3, 10%);
+      } 
+
+      &:disabled {
+        background: lighten(#6C7CB3, 10%);
+        cursor: not-allowed;
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      &::-moz-focus-inner {
+        border: 0;
+      }
+
+      &:not(:last-child){
+      margin-right: 1rem;
+    }
+  }
 }
+
 
 .loading {
-  width: 6rem;
-  height: 6rem;
-  margin: 0.5rem;
-  border-radius: 50%;
-  border: 6px solid #fafafa;
-  border-color: #fafafa transparent transparent;
-  animation: spin 1.3s linear infinite;
-  display: block;
+  min-height: 350px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .spinner{
+    width: 100px;
+    height: 100px;
+    border: 3px solid white;
+    border-color: white grey grey ;
+    border-radius: 50%;
+    animation: spin 1.3s linear infinite;
+  }
+}
+
+.comic {
+  min-height: 350px;
+  height: 100%;
 }
 
 @keyframes spin {
-  from {
-    transform: rotate(30deg)
+  to{
+    transform: rotate(0deg)
   }
-  to {
-    transform: rotate(390deg)
+  from{
+    transform: rotate(360deg)
   }
 }
+
+// .app {
+//   box-sizing: border-box;
+//   display: flex;
+//   flex-direction: column;
+//   min-height: 100vh;
+//   align-items: center;
+//   justify-content: center;
+//   color: #fafafa;
+// }
+
+// button {
+//   background: #6C7CB3;
+//   border: 1px solid black;
+//   box-shadow: 0 0 5px 0 black;
+//   border-radius: 0.25rem;
+//   color: #fafafa;
+//   cursor: pointer;
+//   font-weight: bold;
+//   transition: background 0.15s;
+//   padding: 0.25rem 1rem;
+
+//   &:hover {
+//     background: darken(#6C7CB3, 10%);
+//   }
+
+//   &:disabled {
+//     background: #81879d;
+//     cursor: not-allowed;
+//   }
+
+//   &:focus {
+//     outline: none;
+//   }
+
+//   &::-moz-focus-inner {
+//     border: 0;
+//   }
+// }
+
+// .buttons-row {
+//   display: grid;
+//   grid-template-rows: 1fr;
+//   grid-auto-flow: column;
+//   grid-gap: 1rem;
+//   justify-items: center;
+//   margin: 1.5rem 0;
+// }
+
+// .comic-container {
+//   min-height: 20rem;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+// }
+
+// @keyframes spin {
+//   from {
+//     transform: rotate(30deg)
+//   }
+//   to {
+//     transform: rotate(390deg)
+//   }
+// }
