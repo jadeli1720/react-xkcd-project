@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import './App.scss';
 import axios from 'axios';
 
 import ComicButtons from './ComicButtons'
 
-function App() {
+const Comic = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [comic, setComic] = useState(null);
@@ -96,3 +95,5 @@ function App() {
     </div>
   );
 };
+
+export default Comic;
