@@ -11,9 +11,7 @@ const Comic = props => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [comic, setComic] = useState(null);
-  // const [latestComicNum, setLatestComicNum] = useState(null);
-
-  //dynamically fetching different comics at will by a specific comic number  (comic.num)
+  
   const fetchComic = number => {
     setLoading(true);
     setError(null);
@@ -32,7 +30,7 @@ const Comic = props => {
       });
   };
 
-  //randomly fetching nay comic available 
+  
   const fetchRandomComic = () => {
     setLoading(true);
     setError(null);
@@ -51,7 +49,6 @@ const Comic = props => {
       });
   }
 
-  //callback function: being explicit to what this function is doing --> fecthing the latest comic
   const fetchLatestComic = () => {
     setLoading(true);
     setError(null);
@@ -69,9 +66,8 @@ const Comic = props => {
       });
   };
 
-  //IMPORTANT:To avoid being banned or paused in making a network request of a public, put it inside useEffect so the request isn't being made on every render. Or put it in as a callback function that you trigger as well.
+  
   useEffect(() => {
-    //Remember, useEffect() takes in a callback
     if (comicNumber === undefined) {
       fetchLatestComic();
     } else if (comicNumber === 'random') {
@@ -95,7 +91,6 @@ const Comic = props => {
     return <div>{error.message}</div>;
   }
 
-  //Remember, for the bottom return statement to run (because a react component is just a function that needs to return JSX), comic cannot be null (it must be have a value). If it is, the component stops at the above conditional and we return loading until a comic becomes !null.
   return (
     <div className="app">
       <h1>{loading ? "Loading..." : comic.title}</h1>
@@ -118,8 +113,6 @@ const Comic = props => {
         comic={comic}
         fetchComic={fetchComic}
         fetchLatestComic={fetchLatestComic}
-        // fetchRandomComic={fetchRandomComic}
-        // latestComicNum={latestComicNum}
         loading={loading}
       />
     </div>
