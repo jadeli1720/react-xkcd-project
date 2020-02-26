@@ -1,40 +1,50 @@
 import React from 'react';
+import { Link, useHistory, useLocation, useParams } from 'react-router-dom';
 import '../App.scss';
+
 
 const ComicButtons = ({
     comic,
     fetchComic, 
     fetchLatestComic, 
-    fetchRandomComic, 
+    // fetchRandomComic, 
     latestComicNum, 
     loading
 }) => {
+
+    const history = useHistory();
+    const location = useLocation();
+    const params = useParams();
+
     return (
         <div className="button-container">
             <button 
-            disabled = {loading || comic.num === 1}
-            onClick={() => fetchComic(1)}>
+                disabled = {loading || comic.num === 1}
+                onClick={() => history.push('/1')}
+            >
             first
             </button>
             <button 
-            disabled = {loading || comic.num <= 1}
-            onClick={() => fetchComic(comic.num - 1)}>
+                disabled = {loading || comic.num <= 1}
+                onClick={() => history.push(`/${comic.num - 1}`)}
+            >
             previous
             </button>
-            {/* fetchRandomComic */}
-            <button 
-            disabled={loading}
-            onClick={() => fetchRandomComic()}>
+            {/* <button 
+                disabled={loading}
+                onClick={() => fetchRandomComic()}>
             Random
-            </button>
+            </button> */}
             <button 
-            disabled = {loading || comic.num === latestComicNum}
-            onClick={() => fetchComic(comic.num + 1)}>
+                disabled = {loading || comic.num === latestComicNum}
+                onClick={() => history.push(`/${comic.num + 1}`)}
+            >
             next
             </button>
             <button 
-            disabled = {loading || comic.num === latestComicNum}
-            onClick={() => fetchLatestComic()}>
+                disabled = {loading || comic.num === latestComicNum}
+                onClick={() => history.push(`/`)}
+            >
             latest
             </button>
         </div>

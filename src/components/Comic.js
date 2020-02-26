@@ -3,7 +3,10 @@ import axios from 'axios';
 
 import ComicButtons from './ComicButtons'
 
-const Comic = () => {
+const Comic = (props) => {
+  console.log("Comic Props", props)
+  const comicNumber = props.match.params.comicNumber
+
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [comic, setComic] = useState(null);
@@ -26,10 +29,10 @@ const Comic = () => {
   };
 
   //randomly fetching nay comic available --> may need to get rid of every place that has random comic
-  const fetchRandomComic = () => {
-    const num = Math.floor(Math.random() * (latestComicNum - 1)) + 1;
-    fetchComic(num);
-  }
+  // const fetchRandomComic = () => {
+  //   const num = Math.floor(Math.random() * (latestComicNum - 1)) + 1;
+  //   fetchComic(num);
+  // }
   
   //callback function: being explicit to what this function is doing --> fecthing the latest comic
   const fetchLatestComic = () => {
@@ -50,8 +53,8 @@ const Comic = () => {
   //IMPORTANT:To avoid being banned or paused in making a network request of a public, put it inside useEffect so the request isn't being made on every render. Or put it in as a callback function that you trigger as well.
   useEffect(() => {
     //Remember, useEffect() takes in a callback
-    fetchLatestComic();
-  }, []);
+    fetchComic(comicNumber);
+  }, [comicNumber]);
 
 
   console.log(comic)
@@ -70,7 +73,7 @@ const Comic = () => {
         comic={comic} 
         fetchComic={fetchComic} 
         fetchLatestComic={fetchLatestComic} 
-        fetchRandomComic={fetchRandomComic} 
+        // fetchRandomComic={fetchRandomComic} 
         latestComicNum={latestComicNum}
         loading={loading}
         />
@@ -88,7 +91,7 @@ const Comic = () => {
         comic={comic} 
         fetchComic={fetchComic} 
         fetchLatestComic={fetchLatestComic} 
-        fetchRandomComic={fetchRandomComic} 
+        // fetchRandomComic={fetchRandomComic} 
         latestComicNum={latestComicNum}
         loading={loading}
         />

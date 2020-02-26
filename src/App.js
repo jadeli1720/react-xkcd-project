@@ -23,11 +23,11 @@ function App() {
           <Blog/>
         </Route>
         <Route path="/about" component={About} />
-        <Route path="/comic" component={Comic} />
-        {/* Because of the way switch works with exact matching, any routes attempted that do not match the above will automatically revert to the below Route. great way to insert a 404 page */}
-        <Route path="/">
+        <Route path="/:comicNumber" component={Comic} />
+        {/* Because of the way switch works with exact matching, any routes attempted that do not match the above will automatically revert to the below Route. great way to insert a 404 page. However it won't work when using the slug/url parameter above (placeholder) */}
+        {/* <Route path="/">
           <h1>404</h1>
-        </Route>
+        </Route> */}
       </Switch>
     </div>
   );
