@@ -1,45 +1,55 @@
-import React from 'react';
-import '../App.scss';
+import React from "react";
+import { useHistory, useLocation, useParams } from "react-router-dom";
+import "../App.scss";
 
 const ComicButtons = ({
     comic,
-    fetchComic, 
-    fetchLatestComic, 
-    fetchRandomComic, 
-    latestComicNum, 
+    fetchComic,
+    fetchLatestComic,
+    // fetchRandomComic,
+    // latestComicNum,
     loading
 }) => {
+    const history = useHistory();
+    const { comicNumber } = useParams();
+
     return (
         <div className="button-container">
-            <button 
-            disabled = {loading || comic.num === 1}
-            onClick={() => fetchComic(1)}>
-            first
+            <button
+                disabled={loading || comic.num === 1}
+                onClick={() => history.push("/1")}
+            >
+                first
             </button>
-            <button 
-            disabled = {loading || comic.num <= 1}
-            onClick={() => fetchComic(comic.num - 1)}>
-            previous
+            <button
+                disabled={loading || comic.num <= 1}
+                onClick={() => history.push(`/${comic.num - 1}`)}
+            >
+                previous
             </button>
-            {/* fetchRandomComic */}
-            <button 
+            {/* Stretch Goal */}
+            
+            <button
             disabled={loading}
-            onClick={() => fetchRandomComic()}>
-            Random
+            onClick={() => history.push('/random')}
+            >
+            random
             </button>
-            <button 
-            disabled = {loading || comic.num === latestComicNum}
-            onClick={() => fetchComic(comic.num + 1)}>
-            next
+       
+            <button
+                disabled={loading || !comicNumber}
+                onClick={() => history.push(`/${comic.num + 1}`)}
+            >
+                next
             </button>
-            <button 
-            disabled = {loading || comic.num === latestComicNum}
-            onClick={() => fetchLatestComic()}>
-            latest
+            <button
+                disabled={loading || !comicNumber}
+                onClick={() => history.push(`/`)}
+            >
+                latest
             </button>
         </div>
-    )
-
+        );
 };
 
 export default ComicButtons;

@@ -9,10 +9,25 @@ body {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  // min-height: 100vh;
   align-items: center;
   justify-content: center;
   color: #fafafa;
+}
+
+a {
+  color: white;
+  transition: color 0.3s;
+  font-weight: bold;
+  text-decoration: none;
+
+  &:hover {
+    color: darken(white, 10%);
+  }
+
+  &:not(:last-child) {
+    margin-right: 0.75rem;
+  }
 }
 
 h1 {
