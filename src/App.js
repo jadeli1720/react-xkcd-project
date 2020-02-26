@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Switch, Route, Link } from 'react-router-dom';
 
 import Comic from './components/Comic';
 import About from './components/About';
@@ -18,11 +18,17 @@ function App() {
         <Link to="/about" >About</Link>
         <Link to="/blog" >Blog</Link>
       </nav>
-      <Route path="/blog">
-        <Blog/>
-      </Route>
-      <Route path="/about" component={About} />
-      <Route path="/comic" component={Comic} />
+      <Switch>
+        <Route path="/blog">
+          <Blog/>
+        </Route>
+        <Route path="/about" component={About} />
+        <Route path="/comic" component={Comic} />
+        {/* Because of the way switch works with exact matching, any routes attempted that do not match the above will automatically revert to the below Route. great way to insert a 404 page */}
+        <Route path="/">
+          <h1>404</h1>
+        </Route>
+      </Switch>
     </div>
   );
 };
