@@ -57,14 +57,7 @@ function App() {
 
 
   console.log(comic)
-  // if(loading) {
-  //   // css loading spinner!
-  //   return (
-  //     <div className="loading">
-  //       <div className="spinner"></div>
-  //     </div>
-  //     );
-  // };
+ 
 
   if(error) {
     return <div>Oops. I'm sorry but something went wrong!</div>
