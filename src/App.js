@@ -14,7 +14,7 @@ function App() {
     <div className="app">
       <nav>
         {/* If we want the links to show which page we are on, use NavLink. We can set specific styles when on that page*/}
-        <Link to="/comic" >Comic</Link>
+        <Link to="/" >Comic</Link>
         <Link to="/about" >About</Link>
         <Link to="/blog" >Blog</Link>
       </nav>
@@ -23,7 +23,7 @@ function App() {
           <Blog/>
         </Route>
         <Route path="/about" component={About} />
-        <Route path="/:comicNumber" component={Comic} />
+        <Route path="/:comicNumber?" component={Comic} />
         {/* Because of the way switch works with exact matching, any routes attempted that do not match the above will automatically revert to the below Route. great way to insert a 404 page. However it won't work when using the slug/url parameter above (placeholder) */}
         {/* <Route path="/">
           <h1>404</h1>
