@@ -1,13 +1,11 @@
 import React from "react";
-import { useHistory, useLocation, useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import "../App.scss";
 
 const ComicButtons = ({
     comic,
     fetchComic,
     fetchLatestComic,
-    // fetchRandomComic,
-    // latestComicNum,
     loading
 }) => {
     const history = useHistory();
@@ -27,15 +25,13 @@ const ComicButtons = ({
             >
                 previous
             </button>
-            {/* Stretch Goal */}
-            
+
             <button
             disabled={loading}
             onClick={() => history.push('/random')}
             >
             random
             </button>
-       
             <button
                 disabled={loading || !comicNumber}
                 onClick={() => history.push(`/${comic.num + 1}`)}
